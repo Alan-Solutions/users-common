@@ -8,14 +8,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
+@ToString(exclude = {"password"})
 public class Users {
 
   @Id
@@ -38,9 +40,9 @@ public class Users {
   private String status;
 
   @Column(name = "created_ts", nullable = false, updatable = false)
-  private long createdTs;
+  private LocalDateTime createdTs;
 
-  @Column(name = "mobile_no", nullable = false, unique = true)
+  @Column(name = "mobile_no", nullable = false)
   private String mobileNo;
 
 }
