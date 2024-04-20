@@ -73,9 +73,8 @@ public class UserServiceTest {
     Users user = userService.getUser(existingUsers.get(0).getId());
     String oldPassword = user.getPassword(), tempPwd = userUtils.base64Encode("myTest");
     userService.update(user, userUtils.base64Encode(user.getPassword()), tempPwd);
-    System.out.println("Old Password " + oldPassword);
     Users updatedUser = userService.getUser(user.getId());
-    System.out.println(String.format("newPassword %s", updatedUser.getPassword()));
+    assertEquals("myTest", updatedUser.getPassword());
   }
 
   @Test
