@@ -54,7 +54,6 @@ public class UserServiceTest {
   public void getUsersTest() {
     List<Users> users = userService.getAllUsers();
     Users user = userService.getUser(users.get(0).getId());
-    System.out.println("users.toString() " + user);
     assertEquals(user.getMobileNo(), testUser.getMobileNo());
   }
 
